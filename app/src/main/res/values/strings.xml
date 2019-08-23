@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Gospel Vision</string>
+    <string name="drawer_bottom_text">Connect with Gospel Vision</string>
+    <string name="programmes">Programmes</string>
+
+    <!--Drawer-->
+    <string-array name="drawerTitles">
+        <item>Tv Schedule</item>
+        <item>Prayer Request</item>
+        <item>Gallery</item>
+        <item>Preachers</item>
+        <item>About Us</item>
+        <item>Contact Us</item>
+    </string-array>
+
+    <!--error messages-->
+    <string name="network_connection">Please check your internet connection</string>
+    <string name="error_occurred">Sorry an error occurred</string>
+    <string name="no_live_data">Sorry no live data available</string>
+    <string name="moments_ago">moments ago</string>
+    <string name="about_us">About Us</string>
+</resources>

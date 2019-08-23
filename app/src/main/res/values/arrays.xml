@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="drawerImages">
+        <item>@drawable/ic_tv_schedule_img</item>
+        <item>@drawable/ic_prayer_request</item>
+        <item>@drawable/ic_gallery</item>
+        <item>@drawable/ic_preachers</item>
+        <item>@drawable/ic_about</item>
+        <item>@drawable/ic_contact</item>
+    </integer-array>
+</resources>
