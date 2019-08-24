@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
             android:allowBackup="true"
@@ -14,8 +15,33 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:name=".programs.VideoProgramsActivity" />
+        <activity
+                android:name=".preachers.PreacherDetailsActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".preachers.PreachersActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".gallery.PhotoViewActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".gallery.GalleryActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".prayer.PrayerRequestActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".schedule.ScheduleActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".contact.ContactActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".AboutActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".programs.VideoProgramsActivity"
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".player.VideoPlayerActivity"
                 android:screenOrientation="fullSensor"
@@ -35,6 +61,15 @@
         <activity
                 android:name=".MainActivity"
                 android:screenOrientation="portrait" />
+        <!-- Registering the BroadcastReceiver ! -->
+        <receiver
+                android:name=".schedule.AlarmBroadcastReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="com.smvis123.ACTION" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

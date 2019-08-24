@@ -7,4 +7,6 @@
     <color name="text_color">#3a0209</color>
     <color name="date_color">#868686</color>
     <color name="about_color">#9e9d9d</color>
+    <color name="contact_color">#4c1b6c</color>
+    <color name="feedback_text_color">#333333</color>
 </resources>

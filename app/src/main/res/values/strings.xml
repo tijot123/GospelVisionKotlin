@@ -19,4 +19,39 @@
     <string name="no_live_data">Sorry no live data available</string>
     <string name="moments_ago">moments ago</string>
     <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+
+    <!--Contact Us-->
+    <string-array name="contactFragmentTitle">
+        <item>Contact Us</item>
+        <item>Feedback</item>
+    </string-array>
+
+    <string name="get_directions">Get Directions</string>
+    <string name="name">Name*</string>
+    <string name="mobile_no">Mobile no.</string>
+    <string name="e_mail">E-mail</string>
+    <string name="message">Message*</string>
+    <string name="submit">Submit</string>
+    <string name="required">Required field</string>
+    <string name="email_error">invalid email</string>
+    <string name="loading">Loading</string>
+    <string name="no_schedules_assigned">No Schedules Assigned</string>
+    <string name="tv_schedule">Tv Schedule</string>
+    <string name="request">Request</string>
+    <string name="prayer_request">Prayer Request</string>
+    <string name="gallery">Gallery</string>
+    <string name="no_images">No images in this album</string>
+    <string name="preachers">Preachers</string>
+
+    <string-array name="preacher_date">
+        <item>About</item>
+        <item>Contact</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="church">Church :</string>
+    <string name="contact_information">Contact Information :</string>
+    <string name="times_of_service">Times of Service :</string>
 </resources>

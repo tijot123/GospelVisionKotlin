@@ -7,15 +7,21 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Window
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.youtube.player.YouTubeStandalonePlayer
 import com.smvis123.R
 import com.smvis123.api.UNIQUE_ID
 import com.smvis123.api.UNIQUE_ID_VALUE
+import com.smvis123.helper.REQUEST_CODE_UPDATE
 import com.smvis123.player.YoutubeHelper
+import java.util.*
+import kotlin.collections.HashMap
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var viewModel: BaseViewModel
@@ -47,15 +53,12 @@ abstract class BaseActivity : AppCompatActivity() {
         if (dialog?.isShowing!!) dialog?.dismiss()
     }
 
-    fun setUpActionBar(toolbar: Toolbar, title: String) {
+    fun setUpActionBar(toolbar: Toolbar, title: String, textView: TextView?) {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(
-            !TextUtils.isEmpty(title)
-        )
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         if (!TextUtils.isEmpty(title)) {
-            toolbar.setTitleTextColor(ContextCompat.getColor(toolbar.context, R.color.white))
-            supportActionBar?.title = title.toUpperCase()
+            textView?.text = title.toUpperCase(Locale.ENGLISH)
         }
     }
 
@@ -69,5 +72,35 @@ abstract class BaseActivity : AppCompatActivity() {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
         startActivity(intent)
+    }
+
+    private fun checkForUpdates() {
+        val updateManager = AppUpdateManagerFactory.create(this)
+        updateManager.appUpdateInfo.addOnSuccessListener {
+            if (it.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE &&
+                it.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+            ) {
+                updateManager.startUpdateFlowForResult(
+                    it,
+                    AppUpdateType.IMMEDIATE,
+                    this,
+                    REQUEST_CODE_UPDATE
+                )
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkForUpdates()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_UPDATE) {
+            if (requestCode != RESULT_OK) {
+                /*If user cancelled the update flow*/
+            }
+        }
     }
 }

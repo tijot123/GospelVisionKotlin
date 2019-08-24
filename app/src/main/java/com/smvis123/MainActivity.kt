@@ -13,9 +13,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smvis123.base.BaseActivity
+import com.smvis123.contact.ContactActivity
 import com.smvis123.databinding.ActivityMainBinding
 import com.smvis123.drawer.DrawerAdapter
 import com.smvis123.drawer.DrawerItemClickListener
+import com.smvis123.gallery.GalleryActivity
 import com.smvis123.helper.*
 import com.smvis123.main.MainActivityViewModel
 import com.smvis123.main.SliderAdapter
@@ -24,7 +26,10 @@ import com.smvis123.main.VideoItemClickListener
 import com.smvis123.model.Category
 import com.smvis123.model.Slider
 import com.smvis123.player.VideoPlayerActivity
+import com.smvis123.prayer.PrayerRequestActivity
+import com.smvis123.preachers.PreachersActivity
 import com.smvis123.programs.VideoProgramsActivity
+import com.smvis123.schedule.ScheduleActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -39,8 +44,28 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
     override fun onItemClicked(position: Int) {
         closeDrawer()
         when (position) {
+            0 -> {
+                val intent = Intent(this@MainActivity, ScheduleActivity::class.java)
+                startActivity(intent)
+            }
+            1 -> {
+                val intent = Intent(this@MainActivity, PrayerRequestActivity::class.java)
+                startActivity(intent)
+            }
+            2 -> {
+                val intent = Intent(this@MainActivity, GalleryActivity::class.java)
+                startActivity(intent)
+            }
+            3 -> {
+                val intent = Intent(this@MainActivity, PreachersActivity::class.java)
+                startActivity(intent)
+            }
             4 -> {
                 val intent = Intent(this@MainActivity, AboutActivity::class.java)
+                startActivity(intent)
+            }
+            5 -> {
+                val intent = Intent(this@MainActivity, ContactActivity::class.java)
                 startActivity(intent)
             }
         }
@@ -58,7 +83,7 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
-        setUpActionBar(binding.toolbar, "")
+        setUpActionBar(binding.toolbar, "",null)
 
         setUpActionBarToggle()
         setUpDrawerItems()

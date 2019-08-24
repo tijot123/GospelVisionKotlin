@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".contact.FeedbackFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <AutoCompleteTextView
+                    android:id="@+id/editText_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="2dip"
+                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:ellipsize="end"
+                    android:ems="12"
+                    android:fontFamily="Roboto-Condensed.ttf"
+                    android:hint="@string/name"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/feedback_text_color"
+                    android:textColorHint="@color/feedback_text_color"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                    android:id="@+id/editText_phno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="2dip"
+                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:ellipsize="end"
+                    android:ems="12"
+                    android:fontFamily="Roboto-Condensed.ttf"
+                    android:hint="@string/mobile_no"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/feedback_text_color"
+                    android:textColorHint="@color/feedback_text_color"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/editText_name" />
+
+            <AutoCompleteTextView
+                    android:id="@+id/editText_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="2dip"
+                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:ellipsize="end"
+                    android:ems="12"
+                    android:fontFamily="Roboto-Condensed.ttf"
+                    android:hint="@string/e_mail"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/feedback_text_color"
+                    android:textColorHint="@color/feedback_text_color"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/editText_phno" />
+
+            <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="2dip"
+                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    app:layout_constraintTop_toBottomOf="@id/editText_email" />
+
+            <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="2dip"
+                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    app:layout_constraintTop_toBottomOf="@id/spinner1" />
+
+            <EditText
+                    android:id="@+id/editText_Message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:ellipsize="end"
+                    android:ems="12"
+                    android:gravity="top"
+                    android:hint="@string/message"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:lines="6"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColor="@color/feedback_text_color"
+                    android:textColorHint="@color/feedback_text_color"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/spinner2" />
+
+            <Button
+                    android:id="@+id/buttonSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rounded_rectangle_shape"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editText_Message" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

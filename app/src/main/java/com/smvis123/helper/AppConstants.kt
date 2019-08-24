@@ -14,6 +14,10 @@ const val GOSPEL_WEBSITE = "https://www.gospelvision.tv/"
 const val GOSPEL_FACEBOOK = "https://www.facebook.com/GospelVisionTV/"
 const val FACEBOOK = "Facebook"
 const val WEBSITE = "Website"
+const val GALLERY_IMAGES = "images"
+const val PREACHER_DATA = "preacher"
+const val POSITION = "position"
+const val REQUEST_CODE_UPDATE: Int = 1201
 
 
 fun sendWebIntent(context: Context, title: String, webUrl: String) {

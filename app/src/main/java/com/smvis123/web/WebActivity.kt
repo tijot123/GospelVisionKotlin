@@ -22,7 +22,7 @@ class WebActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_web)
         val webUrl = intent?.getStringExtra(WEB_URl)
         val title = intent?.getStringExtra(WEB_TITLE)
-        setUpActionBar(binding.toolbar, title.toString())
+        setUpActionBar(binding.toolbar, title.toString(), binding.toolbarTitle)
         showProgressView()
         setupWebView(webUrl)
     }

@@ -12,7 +12,7 @@ class AboutActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_about)
-        setUpActionBar(binding.toolbar, getString(R.string.about_us))
+        setUpActionBar(binding.toolbar, getString(R.string.about_us),binding.toolbarTitle)
         binding.textView.text = HtmlCompat.fromHtml(
             "Gospel Vision, the pioneer Christian television channel in Sri Lanka, operates under the banner of Zoe Life Ministries and is committed to the vision entrusted to it by the living God - a God who cares for the nations of the world as much as He does for each individual. As people belonging to God's great family and who have experienced the love of our Father God. It is our privilege and honour to share this good news with all the world."
                     + "<br><br>Therefore, it is our passion to take the Gospel with its power to bring hope in a world riddled with pain, purpose in every life without meaning and joy in every situation where there is nothing but sorrow, to the uttermost parts of this earth, in our quest to 'reach the unreached'"

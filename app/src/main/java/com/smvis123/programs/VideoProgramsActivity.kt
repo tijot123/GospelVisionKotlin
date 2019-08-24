@@ -23,7 +23,7 @@ class VideoProgramsActivity : BaseActivity(), VideoClickedListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_video_programs)
         viewModel = ViewModelProviders.of(this).get(VideoProgramsActivityViewModel::class.java)
-        setUpActionBar(binding.toolbar, getString(R.string.programmes))
+        setUpActionBar(binding.toolbar, getString(R.string.programmes),binding.toolbarTitle)
         initRecyclerView()
         initObservers()
         val videoCategoryId = intent.getStringExtra(VIDEO_CATEGORY_ID) as String
