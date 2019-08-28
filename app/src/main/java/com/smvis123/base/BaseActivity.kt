@@ -66,7 +66,7 @@ abstract class BaseActivity : AppCompatActivity() {
     fun playYoutubeVideo(youtubeUrl: String) {
         val intent = YouTubeStandalonePlayer.createVideoIntent(
             this,
-            getString(R.string.google_api_key),
+            getString(R.string.google_api_key_new),
             YoutubeHelper.getYouTubeVideoId(youtubeUrl), 0, true, false
         )
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "56091796654",
+    "firebase_url": "https://gospelvisiontv-40d75.firebaseio.com",
+    "project_id": "gospelvisiontv-40d75",
+    "storage_bucket": "gospelvisiontv-40d75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56091796654:android:57aa8999ce28c5cb",
+        "android_client_info": {
+          "package_name": "com.smvis123"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56091796654-96fi6lkusf9e8v311avs8up6u3tsvuke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwIGcxtOWbZo_kHojJc1tVao4MPZD2Q7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56091796654-96fi6lkusf9e8v311avs8up6u3tsvuke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

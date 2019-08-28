@@ -2,8 +2,10 @@ package com.smvis123.helper
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -36,4 +38,13 @@ object Utils {
         }
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+    fun convertToDp(resources: Resources, dpMeasure: Float): Int {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dpMeasure,
+            resources.displayMetrics
+        ).toInt()
+    }
+
 }

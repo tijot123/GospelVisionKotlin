@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
@@ -34,7 +36,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickListener {
+    private lateinit var pref: PrefManager
     override fun onVideoItemClicked(videoCategory: Category) {
         val intent = Intent(this@MainActivity, VideoProgramsActivity::class.java)
         intent.putExtra(VIDEO_CATEGORY_ID, videoCategory.id.toString())
@@ -83,8 +87,8 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
-        setUpActionBar(binding.toolbar, "",null)
-
+        setUpActionBar(binding.toolbar, "", null)
+        pref = PrefManager(this)
         setUpActionBarToggle()
         setUpDrawerItems()
         setUpVideoRecyclerView()
@@ -108,6 +112,8 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
                 viewModel.getLiveTvData(params)
             } else Utils.showSnackView(getString(R.string.network_connection), binding.root)
         }
+
+        showPushMessage()
     }
 
     private fun initialiseObservers() {
@@ -210,5 +216,62 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
             val alert = builder.create()
             alert.show()
         }
+    }
+
+
+    private fun showPushMessage() {
+        // for push notification display
+        try {
+            val data = pref.getPushData()
+            val descPush = data[1]//getIntent().getStringExtra("desc_push");
+            val imagePush1 = data[2]//getIntent().getStringExtra("image_push");
+            if (!TextUtils.isEmpty(descPush)) {
+                val builder = AlertDialog.Builder(this, R.style.CustomDialogTheme)
+                builder.setTitle(data[0] ?: getString(R.string.app_name))
+                    .setMessage(descPush)
+                if (!TextUtils.isEmpty(imagePush1)) {
+                    val imagePush = ImageView(this)
+                    val layoutParams = RelativeLayout.LayoutParams(
+                        // or ViewGroup.LayoutParams.WRAP_CONTENT
+                        RelativeLayout.LayoutParams.MATCH_PARENT,
+                        // or ViewGroup.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT
+                    )
+                    layoutParams.setMargins(
+                        Utils.convertToDp(resources, 5F),
+                        Utils.convertToDp(resources, 5F),
+                        Utils.convertToDp(resources, 5F),
+                        Utils.convertToDp(resources, 5F)
+                    )
+                    imagePush.layoutParams = layoutParams
+                    imagePush.adjustViewBounds = true
+                    GlideApp.with(this).load(imagePush1).into(imagePush)
+                    builder.setView(imagePush)
+                }
+                builder.setCancelable(false)
+                builder.setPositiveButton(
+                    "OK"
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                    clearPushData()
+                }
+                builder.show()
+
+            }
+        } catch (e: Exception) {
+            // TODO: handle exception
+            e.printStackTrace()
+            clearPushData()
+        }
+
+    }
+
+    private fun clearPushData() {
+        pref.addPushData("", "", "")
+    }
+
+    override fun onDestroy() {
+        clearPushData()
+        super.onDestroy()
     }
 }

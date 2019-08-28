@@ -4,6 +4,12 @@ import android.content.Context
 import android.content.Intent
 import com.smvis123.web.WebActivity
 
+
+const val PRIVATE_MODE = 0
+const val PREF_NAME = "GospelVision"
+const val PUSH_TITLE = "push_title"
+const val PUSH_IMAGE = "push_image"
+const val PUSH_MSG = "push_message"
 const val WEB_URl = "web"
 const val WEB_TITLE = "web_title"
 const val SLIDER_DELAY: Long = 4000

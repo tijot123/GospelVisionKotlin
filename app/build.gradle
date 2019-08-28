@@ -1,3 +1,11 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.1'
+    }
+}
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -12,12 +20,17 @@ android {
         applicationId "com.smvis123"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 16
-        versionName "2.5"
+        versionCode 17
+        versionName "2.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resValue "string", "google_api_key", (project.findProperty("GOOGLE_API_KEY") ?: "")
+        resValue "string", "google_api_key_new", (project.findProperty("GOOGLE_API_KEY") ?: "")
         //strip other than english resources
         resConfigs "en"
+        manifestPlaceholders = [
+                onesignal_app_id               : 'e790571b-cdc0-4f61-9a3a-404ea30cb69e',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE'
+        ]
     }
     buildTypes {
         release {
@@ -66,4 +79,11 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-runtime:2.0.0'
     api 'androidx.lifecycle:lifecycle-common-java8:2.0.0'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    /*Push One signal addon*/
+    implementation 'com.google.firebase:firebase-core:17.1.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.1.0'
+    implementation 'com.onesignal:OneSignal:3.10.3'
 }
+apply plugin: 'com.google.gms.google-services'
