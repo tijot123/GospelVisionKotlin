@@ -14,6 +14,7 @@
                 android:contentDescription="@string/app_name"
                 android:scaleType="fitXY"
                 android:src="@drawable/app_bg"
+                android:transitionName="@string/image_transition"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

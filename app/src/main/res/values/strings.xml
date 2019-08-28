@@ -54,4 +54,5 @@
     <string name="church">Church :</string>
     <string name="contact_information">Contact Information :</string>
     <string name="times_of_service">Times of Service :</string>
+    <string name="image_transition">image_transition</string>
 </resources>

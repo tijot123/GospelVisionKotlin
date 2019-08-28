@@ -40,7 +40,10 @@ class PreachersAdapter(
         holder.binding.videoDesc.text = pastorList[position].designation
         holder.binding.videoTitle.text = pastorList[position].name
         holder.itemView.setOnClickListener {
-            preacherItemClickListener.onItemClicked(pastorList[holder.adapterPosition])
+            preacherItemClickListener.onItemClicked(
+                pastorList[holder.adapterPosition],
+                holder.binding.imageView
+            )
         }
     }
 

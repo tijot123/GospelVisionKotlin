@@ -17,7 +17,7 @@ class PreacherDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_preacher_details)
         val preacher: Preachers = intent.getSerializableExtra(PREACHER_DATA) as Preachers
-        setUpActionBar(binding.toolbar, preacher.name,binding.toolbarTitle)
+        setUpActionBar(binding.toolbar, preacher.name, binding.toolbarTitle)
 
         GlideApp.with(this).load(IMAGE_BASE_URL + preacher.thumbnail).into(binding.imageView)
 
@@ -30,5 +30,9 @@ class PreacherDetailsActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        supportFinishAfterTransition()
     }
 }

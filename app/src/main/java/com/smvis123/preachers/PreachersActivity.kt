@@ -3,6 +3,9 @@ package com.smvis123.preachers
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,10 +17,17 @@ import com.smvis123.helper.PREACHER_DATA
 import com.smvis123.model.Preachers
 
 class PreachersActivity : BaseActivity(), PreacherItemClickListener {
-    override fun onItemClicked(preacher: Preachers) {
+    override fun onItemClicked(preacher: Preachers, imageView: ImageView) {
         val intent = Intent(this@PreachersActivity, PreacherDetailsActivity::class.java)
         intent.putExtra(PREACHER_DATA, preacher)
-        startActivity(intent)
+        val options = ViewCompat.getTransitionName(imageView)?.let {
+            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                this@PreachersActivity,
+                imageView,
+                it
+            )
+        }
+        startActivity(intent, options?.toBundle())
     }
 
     private lateinit var viewModel: PreachersActivityViewModel
@@ -26,7 +36,7 @@ class PreachersActivity : BaseActivity(), PreacherItemClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_preachers)
         viewModel = ViewModelProviders.of(this).get(PreachersActivityViewModel::class.java)
-        setUpActionBar(binding.toolbar, getString(R.string.preachers),binding.toolbarTitle)
+        setUpActionBar(binding.toolbar, getString(R.string.preachers), binding.toolbarTitle)
         initObservers()
         initRecyclerView()
 
