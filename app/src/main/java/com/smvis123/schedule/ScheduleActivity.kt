@@ -112,7 +112,7 @@ class ScheduleActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_schedule)
         viewModel = ViewModelProviders.of(this).get(ScheduleActivityViewModel::class.java)
-        setUpActionBar(binding.toolbar, getString(R.string.tv_schedule),binding.toolbarTitle)
+        setUpActionBar(binding.toolbar, getString(R.string.tv_schedule), binding.toolbarTitle)
         binding.h1.visibility = View.GONE
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this)
@@ -143,6 +143,7 @@ class ScheduleActivity : BaseActivity(), View.OnClickListener {
             initFunction()
         })
         viewModel.isApiSuccess.observe(this, androidx.lifecycle.Observer {
+            if (!it) Utils.showToast(getString(R.string.network_connection), this)
             hideProgressView()
         })
     }

@@ -124,6 +124,7 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
             showProgressView()
         })
         viewModel.isApiSuccess.observe(this, Observer {
+            if (!it) Utils.showSnackView(getString(R.string.network_connection), binding.root)
             hideProgressView()
         })
         viewModel.videoCategoryList.observe(this, Observer {

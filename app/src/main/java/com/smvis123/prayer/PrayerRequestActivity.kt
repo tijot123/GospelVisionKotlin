@@ -10,14 +10,17 @@ import androidx.databinding.DataBindingUtil
 import com.smvis123.R
 import com.smvis123.base.BaseActivity
 import com.smvis123.databinding.ActivityPrayerRequestBinding
+import com.smvis123.helper.Utils
+
 
 class PrayerRequestActivity : BaseActivity() {
     private lateinit var binding: ActivityPrayerRequestBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_prayer_request)
-        setUpActionBar(binding.toolbar, getString(R.string.prayer_request),binding.toolbarTitle)
+        setUpActionBar(binding.toolbar, getString(R.string.prayer_request), binding.toolbarTitle)
         binding.buttonSend.setOnClickListener {
+            Utils.hideKeyboard(this@PrayerRequestActivity)
             val name = binding.editTextName.text.toString()
             val email = binding.editTextEmail.text.toString()
             val message = binding.editTextMessage.text.toString()
@@ -39,26 +42,28 @@ class PrayerRequestActivity : BaseActivity() {
 
     private fun sendPrayerRequest(name: String, email: String, message: String) {
         try {
-            val intent = Intent(Intent.ACTION_SENDTO) // it's not ACTION_SEND
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "gospelvisiontvl@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "PRAYER REQUEST")
             intent.putExtra(
                 Intent.EXTRA_TEXT, "Name    :  " + name + "\n\n"
                         + "E-mail :  " + email + "\n\n"
                         + "Request :  " + message
             )
-
-            intent.setDataAndType(
-                Uri.parse("mailto: gospelvisiontvsl@gmail.com"),
-                "text/plain"
-            ) // or just "mailto:" for blank
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) // this will make such that when user returns to your app, your app is displayed, instead of the email app.
             startActivity(intent)
+            clearData()
 
         } catch (e: Exception) {
             // TODO Auto-generated catch block
             e.printStackTrace()
         }
 
+    }
+
+    private fun clearData() {
+        binding.editTextEmail.setText("")
+        binding.editTextMessage.setText("")
+        binding.editTextName.setText("")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

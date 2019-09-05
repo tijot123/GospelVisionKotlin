@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -23,9 +22,8 @@ object Utils {
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        var activeNetworkInfo: NetworkInfo? = null
-        activeNetworkInfo = connectivityManager.activeNetworkInfo
-        return activeNetworkInfo != null
+        val networks = connectivityManager.allNetworks
+        return networks.isNotEmpty()
     }
 
     fun hideKeyboard(activity: Activity) {
