@@ -237,13 +237,13 @@ class FeedbackFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         val countryAdapter =
             activity?.let { ArrayAdapter(it, R.layout.my_spinner_textview_white, countryArray) }
-        countryAdapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        countryAdapter?.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         binding.spinner1.adapter = countryAdapter
         binding.spinner1.setSelection(86)
 
         val sexAdapter =
             activity?.let { ArrayAdapter(it, R.layout.my_spinner_textview_white, sexArray) }
-        sexAdapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sexAdapter?.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         binding.spinner2.adapter = sexAdapter
         binding.buttonSend.setOnClickListener {
             val name = binding.editTextName.text.toString()

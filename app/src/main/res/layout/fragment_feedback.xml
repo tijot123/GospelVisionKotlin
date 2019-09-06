@@ -21,7 +21,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="2dip"
-                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:background="@drawable/rounded_rectangle_shape_cornered"
                     android:ellipsize="end"
                     android:ems="12"
                     android:fontFamily="Roboto-Condensed.ttf"
@@ -30,8 +30,8 @@
                     android:maxLines="1"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/feedback_text_color"
-                    android:textColorHint="@color/feedback_text_color"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="2dip"
-                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:background="@drawable/rounded_rectangle_shape_cornered"
                     android:ellipsize="end"
                     android:ems="12"
                     android:fontFamily="Roboto-Condensed.ttf"
@@ -54,8 +54,8 @@
                     android:maxLines="1"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/feedback_text_color"
-                    android:textColorHint="@color/feedback_text_color"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@id/editText_name" />
 
@@ -68,7 +68,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="2dip"
-                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:background="@drawable/rounded_rectangle_shape_cornered"
                     android:ellipsize="end"
                     android:ems="12"
                     android:fontFamily="Roboto-Condensed.ttf"
@@ -78,8 +78,8 @@
                     android:maxLines="1"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/feedback_text_color"
-                    android:textColorHint="@color/feedback_text_color"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@id/editText_phno" />
 
@@ -91,7 +91,8 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="2dip"
-                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:popupBackground="@drawable/rounded_rectangle_shape_cornered"
+                    android:background="@drawable/rounded_rectangle_shape_cornered"
                     app:layout_constraintTop_toBottomOf="@id/editText_email" />
 
             <Spinner
@@ -102,7 +103,8 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="2dip"
-                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:popupBackground="@drawable/rounded_rectangle_shape_cornered"
+                    android:background="@drawable/rounded_rectangle_shape_cornered"
                     app:layout_constraintTop_toBottomOf="@id/spinner1" />
 
             <EditText
@@ -113,7 +115,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
-                    android:background="@android:drawable/editbox_dropdown_light_frame"
+                    android:background="@drawable/rounded_rectangle_shape_cornered"
                     android:ellipsize="end"
                     android:ems="12"
                     android:gravity="top"
@@ -123,8 +125,8 @@
                     android:lines="6"
                     android:maxLines="1"
                     android:padding="10dp"
-                    android:textColor="@color/feedback_text_color"
-                    android:textColorHint="@color/feedback_text_color"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@id/spinner2" />
 

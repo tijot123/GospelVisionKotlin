@@ -5,6 +5,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/bg"
             tools:context=".AboutActivity">
 
         <androidx.appcompat.widget.Toolbar
@@ -12,7 +13,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimary"
-                app:layout_constraintTop_toTopOf="parent" >
+                app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                     android:id="@+id/toolbarTitle"
                     android:layout_width="wrap_content"
@@ -31,16 +33,31 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-            <TextView
-                    android:id="@+id/textView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:autoLink="web|email|phone"
-                    android:text="@string/app_name"
-                    android:textColor="@color/about_color"
-                    android:textColorLink="@color/about_color"
-                    android:textSize="15sp" />
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/about_us_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:autoLink="web|email|phone"
+                        android:text="@string/app_name"
+                        android:textColor="@color/about_color"
+                        android:textColorLink="@color/about_color"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toBottomOf="@id/imageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -16,11 +16,11 @@
             <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
-                    android:src="@drawable/contact_banner"
+                    android:src="@drawable/contact_us_image"
                     app:layout_constraintTop_toTopOf="parent" />
 
             <View
@@ -36,7 +36,7 @@
                     android:layout_marginStart="10dp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_call_contact"
-                    android:tint="@color/text_color"
+                    android:tint="@color/white"
                     app:layout_constraintBottom_toBottomOf="@id/contactNo"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/contactNo" />
@@ -50,8 +50,8 @@
                     android:gravity="center_vertical"
                     android:padding="10dp"
                     android:text="@string/app_name"
-                    android:textColor="@color/contact_color"
-                    android:textColorLink="@color/contact_color"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
                     android:layout_marginStart="10dp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_mail_contact"
-                    android:tint="@color/text_color"
+                    android:tint="@color/white"
                     app:layout_constraintBottom_toBottomOf="@id/mailAddress"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/mailAddress" />
@@ -77,11 +77,11 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:autoLink="all"
-                    android:textColorLink="@color/contact_color"
+                    android:textColorLink="@color/white"
                     android:gravity="center_vertical"
                     android:padding="10dp"
                     android:text="@string/app_name"
-                    android:textColor="@color/contact_color"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
                     android:layout_marginStart="10dp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_location_contact"
-                    android:tint="@color/text_color"
+                    android:tint="@color/white"
                     app:layout_constraintBottom_toBottomOf="@id/locationAddress"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/locationAddress" />
@@ -107,11 +107,11 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:autoLink="all"
-                    android:textColorLink="@color/contact_color"
+                    android:textColorLink="@color/white"
                     android:gravity="center_vertical"
                     android:padding="10dp"
                     android:text="@string/app_name"
-                    android:textColor="@color/contact_color"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
                     android:gravity="end|center_vertical"
                     android:padding="10dp"
                     android:text="@string/get_directions"
-                    android:textColor="@color/contact_color"
+                    android:textColor="@color/white"
                     android:textSize="17sp"
                     app:layout_constraintTop_toBottomOf="@id/locationAddress" />
 

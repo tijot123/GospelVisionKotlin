@@ -43,7 +43,7 @@ class PrayerRequestActivity : BaseActivity() {
     private fun sendPrayerRequest(name: String, email: String, message: String) {
         try {
             val intent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "gospelvisiontvl@gmail.com"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "gospelvisiontvsl@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "PRAYER REQUEST")
             intent.putExtra(
                 Intent.EXTRA_TEXT, "Name    :  " + name + "\n\n"
