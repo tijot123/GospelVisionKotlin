@@ -282,7 +282,8 @@ class FeedbackFragment : BaseFragment() {
         phNo: String
     ) {
         try {
-            val intent = Intent(Intent.ACTION_SENDTO) // it's not ACTION_SEND
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "gospelvisiontvsl@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK")
             intent.putExtra(
                 Intent.EXTRA_TEXT, name + "\n"
@@ -292,17 +293,14 @@ class FeedbackFragment : BaseFragment() {
                         + country + "\n\n"
                         + "Message :  " + message
             )
-
-            intent.setDataAndType(
-                Uri.parse("mailto: gospelvisiontvsl@gmail.com"),
-                "text/plain"
-            ) // or just "mailto:" for blank
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) // this will make such that when user returns to your app, your app is displayed, instead of the email app.
             startActivity(intent)
+            clearEditText()
+
         } catch (e: Exception) {
             // TODO Auto-generated catch block
             e.printStackTrace()
         }
+
 
     }
 

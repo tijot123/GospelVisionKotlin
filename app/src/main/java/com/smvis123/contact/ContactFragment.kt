@@ -47,11 +47,7 @@ class ContactFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding.contactNo.text = (" 011-2681701"
-                + "\n 077-9221523"
-                + "\n 011-2689342"
-                + "\n 072-7700751"
-                + "\n 072-7311211")
+        binding.contactNo.text = ("+94112681701")
         binding.locationAddress.text = HtmlCompat.fromHtml(
             "<b>Location</b>"
                     + "<br> 71A Gregory's Road,"
@@ -59,6 +55,7 @@ class ContactFragment : Fragment() {
                     + "<br>Sri Lanka", HtmlCompat.FROM_HTML_MODE_LEGACY
         )
         binding.mailAddress.text = GOSPEL_WEBSITE
+        binding.goToMap.visibility = View.GONE
         binding.goToMap.setOnClickListener {
             if (isPermissionGranted()) {
                 requestLocationData()

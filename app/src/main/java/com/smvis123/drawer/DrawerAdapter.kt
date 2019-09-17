@@ -1,8 +1,10 @@
 package com.smvis123.drawer
 
 import android.content.res.TypedArray
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.smvis123.R
@@ -29,6 +31,20 @@ class DrawerAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        if (position == 4) {
+            holder.binding.title.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    android.R.color.holo_red_dark
+                )
+            )
+            holder.binding.imageView.setColorFilter(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    android.R.color.holo_red_dark
+                ), PorterDuff.Mode.SRC_ATOP
+            )
+        }
         holder.binding.title.text = drawerTitles[position]
         holder.binding.imageView.setImageDrawable(drawerImages.getDrawable(position))
         holder.itemView.setOnClickListener {
