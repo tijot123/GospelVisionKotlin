@@ -11,6 +11,6 @@ import com.smvis123.R
 class GlideHelper : AppGlideModule() {
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         super.applyOptions(context, builder)
-        builder.setDefaultRequestOptions(RequestOptions().error(R.drawable.app_bg).placeholder(R.drawable.app_bg))
+        builder.setDefaultRequestOptions(RequestOptions().error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher))
     }
 }

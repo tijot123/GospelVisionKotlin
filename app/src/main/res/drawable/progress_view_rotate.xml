@@ -16,10 +16,10 @@
                 android:height="50dp" />
 
         <gradient
-                android:centerColor="@color/text_color"
+                android:centerColor="@color/colorPrimary"
                 android:centerY="0.50"
-                android:endColor="@color/design_default_color_error"
-                android:startColor="@color/design_default_color_secondary_variant"
+                android:endColor="@color/colorPrimaryDark"
+                android:startColor="@color/white"
                 android:type="sweep"
                 android:useLevel="false" />
     </shape>

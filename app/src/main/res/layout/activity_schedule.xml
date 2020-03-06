@@ -5,7 +5,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bg"
+            android:background="@color/white"
             tools:context=".schedule.ScheduleActivity">
 
         <androidx.appcompat.widget.Toolbar
@@ -13,14 +13,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimary"
-                app:layout_constraintTop_toTopOf="parent"  >
+                app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                     android:id="@+id/toolbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white"
+                    android:textColor="@color/new_white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
         </androidx.appcompat.widget.Toolbar>

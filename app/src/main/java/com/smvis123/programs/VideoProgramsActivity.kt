@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smvis123.R
@@ -22,7 +23,7 @@ class VideoProgramsActivity : BaseActivity(), VideoClickedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_video_programs)
-        viewModel = ViewModelProviders.of(this).get(VideoProgramsActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(VideoProgramsActivityViewModel::class.java)
         setUpActionBar(binding.toolbar, getString(R.string.programmes),binding.toolbarTitle)
         initRecyclerView()
         initObservers()

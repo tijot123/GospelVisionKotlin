@@ -13,6 +13,7 @@ class MainSplash : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_splash)
+        binding.image = true
         Handler().postDelayed({
             val intent = Intent(this@MainSplash, MainActivity::class.java)
             startActivity(intent)

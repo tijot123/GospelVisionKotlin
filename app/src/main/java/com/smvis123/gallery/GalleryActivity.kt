@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.smvis123.R
@@ -26,7 +27,7 @@ class GalleryActivity : BaseActivity(), GalleryItemClickedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
-        viewModel = ViewModelProviders.of(this).get(GalleryActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GalleryActivityViewModel::class.java)
         setUpActionBar(binding.toolbar, getString(R.string.gallery),binding.toolbarTitle)
         initRecyclerView()
         initObservers()

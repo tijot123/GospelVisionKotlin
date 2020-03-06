@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smvis123.base.BaseActivity
@@ -86,7 +87,7 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         setUpActionBar(binding.toolbar, "", null)
         pref = PrefManager(this)
         setUpActionBarToggle()

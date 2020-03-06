@@ -10,6 +10,7 @@ import android.view.Window
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
@@ -30,7 +31,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initializeProgressDialog()
-        viewModel = ViewModelProviders.of(this).get(BaseViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(BaseViewModel::class.java)
         params[UNIQUE_ID] = UNIQUE_ID_VALUE
     }
 

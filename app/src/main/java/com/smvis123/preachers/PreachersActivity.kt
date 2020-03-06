@@ -8,6 +8,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smvis123.R
@@ -35,7 +36,7 @@ class PreachersActivity : BaseActivity(), PreacherItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_preachers)
-        viewModel = ViewModelProviders.of(this).get(PreachersActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PreachersActivityViewModel::class.java)
         setUpActionBar(binding.toolbar, getString(R.string.preachers), binding.toolbarTitle)
         initObservers()
         initRecyclerView()

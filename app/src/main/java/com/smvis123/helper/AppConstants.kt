@@ -2,6 +2,10 @@ package com.smvis123.helper
 
 import android.content.Context
 import android.content.Intent
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.smvis123.R
 import com.smvis123.web.WebActivity
 
 
@@ -31,4 +35,9 @@ fun sendWebIntent(context: Context, title: String, webUrl: String) {
     intent.putExtra(WEB_URl, webUrl)
     intent.putExtra(WEB_TITLE, title)
     context.startActivity(intent)
+}
+
+@BindingAdapter("splash")
+fun setSplashScreenImage(mImageView: ImageView, shouldShow: Boolean) {
+    Glide.with(mImageView.context).load(R.drawable.splash_screen).into(mImageView)
 }

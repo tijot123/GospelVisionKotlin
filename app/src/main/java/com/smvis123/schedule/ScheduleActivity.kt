@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smvis123.R
@@ -31,7 +32,7 @@ class ScheduleActivity : BaseActivity(), View.OnClickListener {
                         R.drawable.bg_cell_alarm
 
                     )
-                btn[j].setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                btn[j].setTextColor(ContextCompat.getColor(this, R.color.white))
             }
             // make it tomorrow
             val dateCal = Calendar.getInstance()
@@ -41,7 +42,7 @@ class ScheduleActivity : BaseActivity(), View.OnClickListener {
             /*setting data of the day*/
             setSchedule(btn[i].text.toString().toLowerCase(Locale.ENGLISH), formattedDate)
             btn[i].setBackgroundResource(R.drawable.bg_cell_alarm_selected)
-            btn[i].setTextColor(ContextCompat.getColor(this, R.color.white))
+            btn[i].setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
         } else Utils.showToast(getString(R.string.network_connection), this)
     }
 
@@ -79,7 +80,7 @@ class ScheduleActivity : BaseActivity(), View.OnClickListener {
                             i = 0
                     }
                     btn[0].setBackgroundResource(R.drawable.bg_cell_alarm_selected)
-                    btn[0].setTextColor(ContextCompat.getColor(this, R.color.white))
+                    btn[0].setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
 
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -111,7 +112,7 @@ class ScheduleActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_schedule)
-        viewModel = ViewModelProviders.of(this).get(ScheduleActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ScheduleActivityViewModel::class.java)
         setUpActionBar(binding.toolbar, getString(R.string.tv_schedule), binding.toolbarTitle)
         binding.h1.visibility = View.GONE
         binding.recyclerView.layoutManager =
