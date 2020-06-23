@@ -31,7 +31,7 @@ class DrawerAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        if (position == 4) {
+/*        if (position == 4) {
             holder.binding.title.setTextColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
@@ -44,7 +44,7 @@ class DrawerAdapter(
                     android.R.color.holo_red_dark
                 ), PorterDuff.Mode.SRC_ATOP
             )
-        }
+        }*/
         holder.binding.title.text = drawerTitles[position]
         holder.binding.imageView.setImageDrawable(drawerImages.getDrawable(position))
         holder.itemView.setOnClickListener {
