@@ -3,6 +3,7 @@ package com.smvis123
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
@@ -28,7 +29,6 @@ import com.smvis123.main.VideoItemClickListener
 import com.smvis123.model.Category
 import com.smvis123.model.Slider
 import com.smvis123.player.VideoPlayerActivity
-import com.smvis123.prayer.PrayerRequestActivity
 import com.smvis123.preachers.PreachersActivity
 import com.smvis123.programs.VideoProgramsActivity
 import com.smvis123.schedule.ScheduleActivity
@@ -53,8 +53,11 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
                 startActivity(intent)
             }
             1 -> {
-                val intent = Intent(this@MainActivity, PrayerRequestActivity::class.java)
-                startActivity(intent)
+                sendWebIntent(
+                    this,
+                    getString(R.string.prayer_request),
+                    "https://bot.botjuggler.com//landing/gospelvision"
+                )
             }
             2 -> {
                 val intent = Intent(this@MainActivity, GalleryActivity::class.java)
@@ -78,6 +81,11 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
     private fun closeDrawer() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START))
             binding.drawerLayout.closeDrawer(GravityCompat.START)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -191,6 +199,8 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             binding.drawerLayout.openDrawer(GravityCompat.START)
+        } else if (item.itemId == R.id.menu_prayer) {
+            onItemClicked(1)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -275,4 +285,6 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
         clearPushData()
         super.onDestroy()
     }
+
+
 }

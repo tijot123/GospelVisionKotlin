@@ -31,6 +31,7 @@ class WebActivity : BaseActivity() {
     private fun setupWebView(webUrl: String?) {
         binding.webView.loadUrl(webUrl)
         binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.domStorageEnabled = true
         binding.webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 super.onProgressChanged(view, newProgress)
