@@ -12,7 +12,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smvis123.base.BaseActivity
@@ -125,17 +124,17 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
     }
 
     private fun initialiseObservers() {
-        viewModel.sliderList.observe(this, Observer {
+        viewModel.sliderList.observe(this, {
             sliderList.clear()
             sliderList.addAll(it)
             viewModel.getVideoCategoryList(params)
             showProgressView()
         })
-        viewModel.isApiSuccess.observe(this, Observer {
+        viewModel.isApiSuccess.observe(this, {
             if (!it) Utils.showSnackView(getString(R.string.network_connection), binding.root)
             hideProgressView()
         })
-        viewModel.videoCategoryList.observe(this, Observer {
+        viewModel.videoCategoryList.observe(this, {
             val sliderAdapter = SliderAdapter(sliderList)
             binding.pager.adapter = sliderAdapter
             binding.indicator.setupWithViewPager(pager, true)
@@ -147,7 +146,7 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
             binding.recyclerView.adapter = videoCategoryAdapter
         })
 
-        viewModel.liveTvData.observe(this, Observer {
+        viewModel.liveTvData.observe(this, {
             if (!TextUtils.isEmpty(it.androidUrl)) {
                 val intent = Intent(this, VideoPlayerActivity::class.java)
                 startActivity(intent)
