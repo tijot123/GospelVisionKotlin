@@ -17,7 +17,7 @@ import java.util.*
 
 class AlarmBroadcastReceiver : BroadcastReceiver() {
     private lateinit var mChannel: NotificationChannel
-    private var message: String = ""
+    private var message: String? = ""
     override fun onReceive(context: Context?, intent: Intent?) {
         val currentTime = System.currentTimeMillis()
         val sdf = SimpleDateFormat("MMM dd,yyyy HH:mm", Locale.ENGLISH)

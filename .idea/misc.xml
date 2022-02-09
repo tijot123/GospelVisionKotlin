@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/progress_view_rotate.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/layout/activity_main_splash.xml" value="0.18840579710144928" />
       </map>
     </option>

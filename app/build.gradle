@@ -1,11 +1,5 @@
-buildscript {
-    repositories {
-        maven { url 'https://plugins.gradle.org/m2/' }
-    }
-    dependencies {
-        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.13.4'
-    }
-}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -15,22 +9,17 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.smvis123"
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 24
-        versionName "3.3"
+        targetSdkVersion 31
+        versionCode 26
+        versionName "3.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resValue "string", "google_api_key_new", (project.findProperty("GOOGLE_API_KEY") ?: "")
         //strip other than english resources
         resConfigs "en"
-        manifestPlaceholders = [
-                onesignal_app_id               : 'e790571b-cdc0-4f61-9a3a-404ea30cb69e',
-                // Project number pulled from dashboard, local value is ignored.
-                onesignal_google_project_number: 'REMOTE'
-        ]
     }
     buildTypes {
         release {
@@ -51,17 +40,17 @@ android {
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'androidx.appcompat:appcompat:1.3.1'
-    api 'com.google.android.material:material:1.4.0'
-    api 'androidx.core:core-ktx:1.6.0'
-    api 'androidx.constraintlayout:constraintlayout:2.1.0'
+    api 'androidx.appcompat:appcompat:1.4.1'
+    api 'com.google.android.material:material:1.5.0'
+    api 'androidx.core:core-ktx:1.7.0'
+    api 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     /*Glide*/
-    api 'com.github.bumptech.glide:glide:4.11.0'
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    api 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
     /*retrofit*/
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -71,21 +60,16 @@ dependencies {
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.17'
     /*play core library*/
-    api 'com.google.android.play:core:1.10.1'
+    api 'com.google.android.play:core:1.10.3'
     /*View animations */
     api 'com.daimajia.easing:library:2.0@aar'
     api 'com.daimajia.androidanimations:library:2.3@aar'
     /* Android Life Cycle Components */
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    api 'androidx.lifecycle:lifecycle-common-java8:2.3.1'
+    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    api 'androidx.lifecycle:lifecycle-common-java8:2.4.0'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
-    /*Push One signal addon*/
-    implementation 'com.google.firebase:firebase-core:19.0.1'
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
-    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
-    implementation 'com.google.firebase:firebase-analytics:19.0.1'
-    implementation 'com.onesignal:OneSignal:3.16.0'
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
 }
 apply plugin: 'com.google.gms.google-services'
 googleServices.disableVersionCheck = true
