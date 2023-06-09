@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:background="@color/black"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    tools:context=".player.PlayerActivity">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:animation_enabled="true"
+        app:auto_show="true"
+        app:buffered_color="@color/white"
+        app:played_color="@color/colorPrimary"
+        app:repeat_toggle_modes="all"
+        app:resize_mode="fit"
+        app:scrubber_color="@color/new_white"
+        app:show_vr_button="true" />
+</FrameLayout>

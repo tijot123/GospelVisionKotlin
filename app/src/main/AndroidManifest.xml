@@ -73,6 +73,12 @@
                 <action android:name="com.smvis123.ACTION" />
             </intent-filter>
         </receiver>
+        <activity
+                android:name=".player.PlayerActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="false"
+                android:screenOrientation="fullSensor"
+                android:theme="@style/FullScreenTheme" />
     </application>
 
 </manifest>

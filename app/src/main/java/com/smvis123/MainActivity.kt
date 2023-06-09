@@ -27,6 +27,7 @@ import com.smvis123.main.VideoCategoryAdapter
 import com.smvis123.main.VideoItemClickListener
 import com.smvis123.model.Category
 import com.smvis123.model.Slider
+import com.smvis123.player.PlayerActivity
 import com.smvis123.player.VideoPlayerActivity
 import com.smvis123.preachers.PreachersActivity
 import com.smvis123.programs.VideoProgramsActivity
@@ -124,17 +125,17 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
     }
 
     private fun initialiseObservers() {
-        viewModel.sliderList.observe(this, {
+        viewModel.sliderList.observe(this) {
             sliderList.clear()
             sliderList.addAll(it)
             viewModel.getVideoCategoryList(params)
             showProgressView()
-        })
-        viewModel.isApiSuccess.observe(this, {
+        }
+        viewModel.isApiSuccess.observe(this) {
             if (!it) Utils.showSnackView(getString(R.string.network_connection), binding.root)
             hideProgressView()
-        })
-        viewModel.videoCategoryList.observe(this, {
+        }
+        viewModel.videoCategoryList.observe(this) {
             val sliderAdapter = SliderAdapter(sliderList)
             binding.pager.adapter = sliderAdapter
             binding.indicator.setupWithViewPager(pager, true)
@@ -144,16 +145,17 @@ class MainActivity : BaseActivity(), DrawerItemClickListener, VideoItemClickList
 
             val videoCategoryAdapter = VideoCategoryAdapter(it, this@MainActivity)
             binding.recyclerView.adapter = videoCategoryAdapter
-        })
+        }
 
-        viewModel.liveTvData.observe(this, {
+        viewModel.liveTvData.observe(this) {
             if (!TextUtils.isEmpty(it.androidUrl)) {
-                val intent = Intent(this, VideoPlayerActivity::class.java)
+                val intent = Intent(this, PlayerActivity::class.java)
+                intent.putExtra(VIDEO_URl, it.androidUrl)
                 startActivity(intent)
             } else if (!TextUtils.isEmpty(it.youtubeUrl)) {
                 playYoutubeVideo(it.youtubeUrl)
             }
-        })
+        }
     }
 
     private fun setUpVideoRecyclerView() {
