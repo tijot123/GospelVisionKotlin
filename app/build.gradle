@@ -14,8 +14,8 @@ android {
         applicationId "com.smvis123"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 26
-        versionName "3.5"
+        versionCode 27
+        versionName "3.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resValue "string", "google_api_key_new", (project.findProperty("GOOGLE_API_KEY") ?: "")
         //strip other than english resources
